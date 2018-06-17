@@ -2,19 +2,12 @@ import random
 from relation_checkers import check_all_relations
 import copy
 
-random.seed(4)
 HANDSIZE = 7
 PRIZEAMOUNT = 6
 
 
 def run_shuffles(relations, basics, amount, DECKLIST):
-    relationhits_global = list()
-    for i in range(len(relations.keys())):
-        relationhits_global.append(0)
     nobasic = 0
-    relationhits = list()
-    for i in range(len(relations.keys())):
-        relationhits.append(0)
     for i in range(amount):
         shuffle(DECKLIST)
         hand = take_hand(DECKLIST)
@@ -22,10 +15,8 @@ def run_shuffles(relations, basics, amount, DECKLIST):
             nobasic += 1
             continue
         prizes, deck = place_prizes(DECKLIST)
-        check_all_relations(hand, prizes, deck, relations, relationhits)
-        for j in range(len(relationhits)):
-            relationhits_global[j] += relationhits[j]
-    return relationhits_global, nobasic
+        check_all_relations(hand, prizes, deck, relations)
+    return nobasic
 
 
 def place_prizes(DECKLIST):
