@@ -12,5 +12,5 @@ def read_infiles(infile_pokemon, infile_combochecks):
                 basics.append(line[0])
     with open(infile_combochecks) as infile_combochecks:
         for line in infile_combochecks.readlines():
-            relations.update({line[:-1] : 0})
+            relations.update({line: 0})
     return relations, basics, DECKLIST

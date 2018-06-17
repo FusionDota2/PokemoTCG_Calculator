@@ -13,7 +13,7 @@ def __main__(infile_decklist, infile_relations, amount=20000):
     for relation in relations:
         print(relation)
         print(round(relations[relation] / amount * 100, 2))
-    print('ByeBye')
+    print('\nByeBye')
 
 
 __main__('Decklist.csv', 'Relations.txt')
